@@ -15,11 +15,12 @@ const BackSound = () => {
     audioEl.current.pause();
   };
   useEffect(() => {
+    audioEl.current.play();
     const interval = () => {
       setInterval(() => {
         setIsPlay(true);
         audioEl.current.play();
-      }, 2000);
+      }, 1000);
     };
 
     return () => {
