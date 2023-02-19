@@ -28,7 +28,7 @@ const GetId = () => {
     try {
       const userId = guest.userId;
       await axios.patch(
-        `${process.env.API_URL}/invitation/status/${guest.unique_Code}?userId=${userId}`,
+        `${process.env.REACT_APP_URI}/invitation/status/${guest.unique_Code}?userId=${userId}`,
         {
           status: selectValue,
         }
