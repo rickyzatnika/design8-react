@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+@font-face {
+  font-family: "Hattori";
+  src: url("../assets/fonts/Hattori-hanzo.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Shikamaru";
+  src: url("../assets/fonts/shikamaru.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "parisienne";
+  src: url("../assets/fonts/parisienne-regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TimesNewRomance";
+  src: url("../assets/fonts/Times-New-Romance.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "timesi";
+  src: url("../assets/fonts/timesi.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
