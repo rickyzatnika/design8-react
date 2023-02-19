@@ -14,18 +14,18 @@ const BackSound = () => {
     setIsPlay(false);
     audioEl.current.pause();
   };
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setIsPlay(true);
-  //     audioEl.current.play();
-  //   };
+  useEffect(() => {
+    const interval = () => {
+      setInterval(() => {
+        setIsPlay(true);
+        audioEl.current.play();
+      }, 2000);
+    };
 
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <>
