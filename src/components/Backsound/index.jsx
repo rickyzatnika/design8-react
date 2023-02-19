@@ -1,10 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { HiPause, HiPlay } from "react-icons/hi";
 import Song from "../../static/audio.mp3";
 
-const BackSound = ({ audioEl }) => {
-  const [isPlay, setIsPlay] = useState(false);
-
+const BackSound = ({ audioEl, isPlay, setIsPlay }) => {
   const ref = useRef();
   audioEl = ref;
 

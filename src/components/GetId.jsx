@@ -6,7 +6,7 @@ import axios from "axios";
 import AnimatedPage from "./AnimatePages";
 import BgCover from "../assets/images/image-1.jpg";
 
-const GetId = ({ audioEl }) => {
+const GetId = ({ audioEl, setIsPlay }) => {
   const navigate = useNavigate();
   const [selectValue, setSelectValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -20,9 +20,7 @@ const GetId = ({ audioEl }) => {
     fetcher
   );
 
-  useEffect(() => {
-    console.log(guest);
-  }, [guest]);
+  useEffect(() => {}, [guest]);
 
   const formSubmit = async () => {
     try {
@@ -35,6 +33,7 @@ const GetId = ({ audioEl }) => {
       );
       setIsOpen(false);
       navigate(`/invitation/${guest.unique_Code}?userId=${userId}`);
+      setIsPlay(true);
       audioEl.current.play();
     } catch (error) {
       console.error(error);

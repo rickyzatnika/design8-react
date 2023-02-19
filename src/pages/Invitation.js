@@ -1,12 +1,13 @@
 import React from 'react'
-import AnimatedPage from '../components/AnimatePages'
+import Header from '../components/Invitations/Header'
 
 const Invitation = () => {
     return (
-        <AnimatedPage>
 
-            <div>Invitation</div>
-        </AnimatedPage>
+        <>
+            <Header />
+        </>
+
     )
 }
 
