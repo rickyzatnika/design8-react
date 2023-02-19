@@ -2,9 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import { HiPause, HiPlay } from "react-icons/hi";
 import Song from "../../static/audio.mp3";
 
-const BackSound = () => {
+const BackSound = ({ audioEl }) => {
   const [isPlay, setIsPlay] = useState(true);
-  const audioEl = useRef();
+
+  const ref = useRef();
+  audioEl = ref;
 
   const playSong = () => {
     setIsPlay(true);
@@ -26,7 +28,7 @@ const BackSound = () => {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [audioEl]);
 
   return (
     <>

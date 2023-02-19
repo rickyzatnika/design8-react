@@ -6,7 +6,7 @@ import axios from "axios";
 import AnimatedPage from "./AnimatePages";
 import BgCover from "../assets/images/image-1.jpg";
 
-const GetId = () => {
+const GetId = ({ audioEl }) => {
   const navigate = useNavigate();
   const [selectValue, setSelectValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -35,6 +35,7 @@ const GetId = () => {
       );
       setIsOpen(false);
       navigate(`/invitation/${guest.unique_Code}?userId=${userId}`);
+      audioEl.current.play();
     } catch (error) {
       console.error(error);
     }
