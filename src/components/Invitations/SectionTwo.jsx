@@ -22,8 +22,8 @@ const SectionTwo = () => {
   const { ref: manRef, inView: manInView } = manInViewRef;
 
   return (
-    <div className="w-full min-h-screen bg-black relative overflow-hidden">
-      <div className="absolute -top-1 left-0 right-0 w-full h-40 bg-gradient-to-t from-black to-transparent" />
+    <div className="w-full min-h-screen bg-black relative ">
+      <div className="absolute -top-1 left-0 w-full h-40 bg-gradient-to-b from-black to-transparent" />
       <motion.h1
         ref={titleRef}
         animate={titleInView ? "animate" : "initial"} // ubah animasi saat inView true
