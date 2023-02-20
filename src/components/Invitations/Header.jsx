@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <>
       <AnimatedPages>
-        <div className="w-full overflow-hidden min-h-screen flex flex-col items-center justify-between py-20 relative">
+        <div className="w-full min-h-screen flex flex-col items-center justify-between py-20 relative">
           <h1 className="text-md px-2 lg:text-lg text-center text-zinc-200">
             <Typewriter
               options={{
@@ -75,6 +75,7 @@ const Header = () => {
             <span className="text-zinc-200">Scroll Down</span>
           </div>
         </div>
+        <div className="absolute -bottom-12 lg:-bottom-1 left-0 w-full h-60 bg-gradient-to-t from-black to-transparent" />
       </AnimatedPages>
     </>
   );
