@@ -75,7 +75,6 @@ const Header = () => {
             <span className="text-zinc-200">Scroll Down</span>
           </div>
         </div>
-        <div className="absolute -bottom-1 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent" />
       </AnimatedPages>
     </>
   );
