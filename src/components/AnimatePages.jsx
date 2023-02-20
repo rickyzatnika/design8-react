@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 
 const animations = {
   initial: { height: 0, opacity: 0 },
-  animate: { height: "100vh", opacity: 1 },
-  exit: { height: "-100vh", opacity: 0 },
+  animate: { height: "100vh", scale: 1, opacity: 1 },
+  exit: { scale: 2, opacity: 0 },
 };
 
 const AnimatedPage = ({ children }) => {
@@ -16,7 +16,7 @@ const AnimatedPage = ({ children }) => {
         exit="exit"
         transition={{
           duration: 1,
-          ease: "easeIn",
+          ease: "linear",
           delay: 0.1,
         }}
       >

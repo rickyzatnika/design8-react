@@ -107,3 +107,18 @@
     opacity: 0;
   }
 }
+
+.animate {
+  animation: scales 55s infinite alternate linear;
+}
+
+@keyframes scales {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0.2;
+  }
+}

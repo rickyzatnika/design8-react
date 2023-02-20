@@ -5,16 +5,18 @@ import Container from "./components/Container";
 import { Helmet } from "react-helmet";
 
 
+
 function App() {
 
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <meta name="description" content="Undangan pernikahan digital, Mayang dan Restu. Powered By Webhouse_Invitation" />
+        <meta name="description" content="Undangan pernikahan digital, Mayang dan Restu. PowerBy: WebHouse_Invitation" />
         <title>The Wedding Of Restu & Mayang</title>
       </Helmet>
       <Container>
+
         <Router>
           <AnimatedRoutes />
         </Router>

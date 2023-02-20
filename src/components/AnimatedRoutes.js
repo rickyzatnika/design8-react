@@ -15,8 +15,8 @@ const AnimatedRoutes = () => {
   return (
     <>
 
+      <BackSound isPlay={isPlay} setIsPlay={setIsPlay} />
       <AnimatePresence mode="wait">
-        <BackSound isPlay={isPlay} setIsPlay={setIsPlay} />
         <Routes key={location.pathname} location={location} >
           <Route path="/" element={<Home />} />
           <Route path="/:uuid" element={<GetId isPlay={isPlay} setIsPlay={setIsPlay} />} />

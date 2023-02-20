@@ -5,7 +5,7 @@ import useSWR from "swr";
 import axios from "axios";
 import AnimatedPage from "./AnimatePages";
 import BgCover from "../assets/images/image-1.jpg";
-import BackSound from "./Backsound";
+import { motion } from "framer-motion";
 
 const GetId = ({ isPlay, setIsPlay }) => {
   const navigate = useNavigate();
@@ -62,15 +62,21 @@ const GetId = ({ isPlay, setIsPlay }) => {
           <div className="w-full min-h-screen bg-gradient-to-t mix-blend-overlay from-black/80 to-transparent absolute top-0 -z-40" />
           <div className="w-full min-h-screen flex flex-col items-center py-20 justify-between lg:justify-around">
             <h1 className="text-2xl text-zinc-300">Wedding Invitation</h1>
-            <div className="flex items-center gap-6 flex-col ">
+            <motion.div
+              initial={{ scale: 3, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 3, opacity: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="flex items-center gap-6 flex-col "
+            >
               <h3 className="text-5xl lg:text-7xl text-zinc-200 font-[parisienne]">
-                Restu
+                Mayang
               </h3>
               <span className="text-2xl text-zinc-200">&</span>
               <h4 className="text-5xl lg:text-7xl text-zinc-200 font-[parisienne]">
-                Mayang
+                Restu
               </h4>
-            </div>
+            </motion.div>
 
             <form
               className="w-fit items-center justify-center flex flex-col"

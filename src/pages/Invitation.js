@@ -1,14 +1,16 @@
 import React from 'react'
-import Header from '../components/Invitations/Header'
+import { Header, SectionTwo, SectionThree } from '../components'
 
 const Invitation = () => {
-    return (
+  return (
 
-        <>
-            <Header />
-        </>
+    <>
+      <Header />
+      <SectionTwo />
+      <SectionThree />
+    </>
 
-    )
+  )
 }
 
 export default Invitation

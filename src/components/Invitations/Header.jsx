@@ -21,22 +21,25 @@ const Header = () => {
   }
 
   if (!guest) {
-    return <div>Loading...</div>;
+    return <div className="absolute top-0 left-0">Loading...</div>;
   }
 
   return (
     <>
       <AnimatedPages>
-        <div className="w-full min-h-screen flex flex-col items-center justify-between py-20 relative">
-          <h1 className="text-md lg:text-lg text-center text-zinc-200">
+        <div className="w-full overflow-hidden min-h-screen flex flex-col items-center justify-between py-20 relative">
+          <h1 className="text-md px-2 lg:text-lg text-center text-zinc-200">
             <Typewriter
               options={{
                 strings: [
-                  `Hi ${guest.name}, Selamat datang di undangan pernikahan kami..`,
-                  "Sampai ketemu di Acara nanti, See you 😊",
+                  `Hi ${guest.name}, Terima kasih sudah meluangkan waktunya untuk melihat undangan ini..`,
+                  "Jangan lupa untuk mengisi form RSVP..",
+                  " Hope you had a great time 😊",
                 ],
+                deleteSpeed: true,
                 autoStart: true,
                 loop: true,
+                delay: 50,
               }}
             />
           </h1>
@@ -50,10 +53,13 @@ const Header = () => {
           </div>
           <div className="w-full min-h-screen absolute top-0 left-0 -z-40 bg-gradient-to-b from-black to-black/10 mix-blend-overlay" />
           <motion.div
-            initial={{ scale: 0, opacity: 0 }}
+            initial={{ scale: 4, opacity: 1 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            exit={{ scale: 3, opacity: 1 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.3,
+            }}
             className="w-fit relative"
           >
             <span className="text-zinc-200 font-[timesi] ">&</span>
@@ -69,6 +75,7 @@ const Header = () => {
             <span className="text-zinc-200">Scroll Down</span>
           </div>
         </div>
+        <div className="absolute -bottom-1 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent" />
       </AnimatedPages>
     </>
   );
