@@ -4,7 +4,7 @@ import './styles/index.css';
 import App from './App';
 
 
-const root = ReactDOM.createRoot(document.getElementById('webhouse_app'));
+const root = ReactDOM.createRoot(document.getElementById('wp_app'));
 root.render(
 
   <App />

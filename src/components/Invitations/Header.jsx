@@ -4,6 +4,7 @@ import useSWR from "swr";
 import bgCover from "../../assets/images/image-3.jpg";
 import AnimatedPages from "../AnimatePages";
 import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
 
 const Header = () => {
   const { uuid } = useParams();
@@ -27,15 +28,18 @@ const Header = () => {
     <>
       <AnimatedPages>
         <div className="w-full min-h-screen flex flex-col items-center justify-between py-20 relative">
-          <motion.h1
-            initial={{ y: -50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -100, opacity: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="text-zinc-200"
-          >
-            Hi {guest.name}, Thanks For Coming..
-          </motion.h1>
+          <h1 className="text-md lg:text-lg text-center text-zinc-200">
+            <Typewriter
+              options={{
+                strings: [
+                  `Hi ${guest.name}, Selamat datang di undangan pernikahan kami..`,
+                  "Sampai ketemu di Acara nanti, See you 😊",
+                ],
+                autoStart: true,
+                loop: true,
+              }}
+            />
+          </h1>
 
           <div className="overflow-hidden">
             <img
@@ -52,6 +56,7 @@ const Header = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="w-fit relative"
           >
+            <span className="text-zinc-200 font-[timesi] ">&</span>
             <h2 className="text-5xl font-[parisienne] text-zinc-300">Restu</h2>
             <h3 className="absolute bottom-20 right-0 text-5xl font-[parisienne] text-zinc-300">
               Mayang

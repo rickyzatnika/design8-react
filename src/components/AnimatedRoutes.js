@@ -6,21 +6,25 @@ import Invitation from "../pages/Invitation";
 import { AnimatePresence } from "framer-motion";
 import BackSound from "./Backsound";
 
-const AnimatedRoutes = ({ audioEl }) => {
-    const [isPlay, setIsPlay] = useState(false)
-    const location = useLocation()
-    return (
-        <>
-            <BackSound audioEl={audioEl} isPlay={isPlay} setIsPlay={setIsPlay} />
-            <AnimatePresence mode="wait">
-                <Routes key={location.pathname} location={location} >
-                    <Route path="/" element={<Home />} />
-                    <Route path="/:uuid" element={<GetId audioEl={audioEl} setIsPlay={setIsPlay} />} />
-                    <Route path="/invitation/:uuid" element={<Invitation />} />
-                </Routes>
-            </AnimatePresence>
-        </>
-    )
+
+const AnimatedRoutes = () => {
+
+  const [isPlay, setIsPlay] = useState(false)
+
+  const location = useLocation()
+  return (
+    <>
+
+      <AnimatePresence mode="wait">
+        <BackSound isPlay={isPlay} setIsPlay={setIsPlay} />
+        <Routes key={location.pathname} location={location} >
+          <Route path="/" element={<Home />} />
+          <Route path="/:uuid" element={<GetId isPlay={isPlay} setIsPlay={setIsPlay} />} />
+          <Route path="/invitation/:uuid" element={<Invitation />} />
+        </Routes>
+      </AnimatePresence>
+    </>
+  )
 }
 
 export default AnimatedRoutes
