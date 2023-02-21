@@ -7,7 +7,7 @@ import AnimatedPage from "./AnimatePages";
 
 import { motion } from "framer-motion";
 
-const GetId = ({ isPlay, setIsPlay }) => {
+const GetId = () => {
   const navigate = useNavigate();
   const [selectValue, setSelectValue] = useState("");
   const { register, handleSubmit } = useForm();
@@ -31,7 +31,6 @@ const GetId = ({ isPlay, setIsPlay }) => {
           status: selectValue,
         }
       );
-      setIsPlay(true);
       navigate(`/invitation/${guest.unique_Code}?userId=${userId}`);
     } catch (error) {
       console.error(error);
@@ -44,10 +43,6 @@ const GetId = ({ isPlay, setIsPlay }) => {
 
   if (error) {
     return <div>Error Loading Data ....</div>;
-  }
-
-  if (!guest) {
-    return <div>Loading ....</div>;
   }
 
   return (

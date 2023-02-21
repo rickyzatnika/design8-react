@@ -1,6 +1,0 @@
-export { default as Header } from "./Invitations/Header"
-export { default as SectionTwo } from "./Invitations/SectionTwo"
-export { default as SectionThree } from "./Invitations/SectionThree"
-export { default as SectionFour } from "./Invitations/SectionFour"
-export { default as SectionFive } from "./Invitations/SectionFive"
-export { default as SectionWish } from "./Invitations/SectionWish"

@@ -1,24 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  subtitleVariants,
-  manImageVariants,
-  womanImageVariants,
-  titleVariants,
-} from "../../utils/Variant";
-
+import { titleVariants } from "../../utils/Variant";
 
 export default function CountDownTimer({ ...props }) {
-
   const [timerDays, setTimerDays] = useState("00");
   const [timerHours, setTimerHours] = useState("00");
   const [timerMinutes, setTimerMinutes] = useState("00");
   const [timerSeconds, setTimerSeconds] = useState("00");
 
   const intervalRef = useRef();
-
-
 
   useEffect(() => {
     const startTimer = () => {
@@ -52,22 +43,19 @@ export default function CountDownTimer({ ...props }) {
   }, []);
 
   const TittleInViewRef = useInView({ threshold: 0.1 });
-
   const { ref: titleRef, inView: titleInView } = TittleInViewRef;
-
 
   return (
     <>
-      <motion.div ref={titleRef}
+      <motion.div
+        ref={titleRef}
         animate={titleInView ? "animate" : "initial"}
         variants={titleVariants}
-        exit="exit" className="w-full relative px-2 lg:absolute top-0 lg:-top-20 h-full py-20 flex flex-col item-center justify-center gap-2 lg:gap-4">
-
+        exit="exit"
+        className="w-full relative px-2 lg:absolute top-0 lg:-top-20 h-full py-20 flex flex-col item-center justify-center gap-2 lg:gap-4"
+      >
         <div className="w-full gap-1 lg:gap-4 flex items-center justify-center h-full">
-          <div
-
-            className="text-center rounded-lg flex flex-col pb-3 shadow-lg bg-gradient-to-tr w-28 h-28 from-zinc-50 to-zinc-200 overflow-hidden  clip"
-          >
+          <div className="text-center rounded-lg flex flex-col pb-3 shadow-lg bg-gradient-to-tr w-28 h-28 from-zinc-50 to-zinc-200 overflow-hidden  clip">
             {/* Timer Days */}
             <div className=" text-3xl sm:text-5xl m-auto font-bold flex items-center justify-center">
               <span className="bg-gradient-to-b from-zinc-900 via-zinc-400 to-zinc-900 bg-clip-text text-transparent">
@@ -78,12 +66,8 @@ export default function CountDownTimer({ ...props }) {
               Hari
             </small>
           </div>
-
           {/* Timer Hours */}
-          <div
-
-            className="text-center rounded-lg flex flex-col pb-2 shadow-lg  bg-gradient-to-tr w-28  h-28  from-zinc-50 to-zinc-200 overflow-hidden  clip"
-          >
+          <div className="text-center rounded-lg flex flex-col pb-2 shadow-lg  bg-gradient-to-tr w-28  h-28  from-zinc-50 to-zinc-200 overflow-hidden  clip">
             <div className=" text-3xl sm:text-5xl m-auto font-bold flex items-center justify-center">
               <span className="bg-gradient-to-b from-zinc-900 via-zinc-400 to-zinc-900 bg-clip-text text-transparent">
                 {timerHours}
@@ -94,10 +78,7 @@ export default function CountDownTimer({ ...props }) {
             </small>
           </div>
           {/* Timer Minutes */}
-          <div
-
-            className="text-center rounded-lg flex flex-col pb-2 shadow-lg  bg-gradient-to-tr w-28  h-28  from-zinc-50 to-zinc-200 overflow-hidden  clip"
-          >
+          <div className="text-center rounded-lg flex flex-col pb-2 shadow-lg  bg-gradient-to-tr w-28  h-28  from-zinc-50 to-zinc-200 overflow-hidden  clip">
             <div className=" text-3xl sm:text-5xl m-auto font-bold flex items-center justify-center">
               <span className="bg-gradient-to-b from-zinc-900 via-zinc-400 to-zinc-900 bg-clip-text text-transparent">
                 {timerMinutes}
@@ -108,10 +89,7 @@ export default function CountDownTimer({ ...props }) {
             </small>
           </div>
           {/* Timer Second */}
-          <div
-
-            className="text-center rounded-lg flex flex-col pb-2 shadow-lg  bg-gradient-to-tr w-28  h-28  from-zinc-50 to-zinc-200 overflow-hidden  clip"
-          >
+          <div className="text-center rounded-lg flex flex-col pb-2 shadow-lg  bg-gradient-to-tr w-28  h-28  from-zinc-50 to-zinc-200 overflow-hidden  clip">
             <div className=" text-3xl sm:text-5xl m-auto font-bold flex items-center justify-center">
               <span className="bg-gradient-to-b from-zinc-900 via-zinc-400 to-zinc-900 bg-clip-text text-transparent">
                 {timerSeconds}
@@ -122,7 +100,6 @@ export default function CountDownTimer({ ...props }) {
             </small>
           </div>
         </div>
-
       </motion.div>
     </>
   );

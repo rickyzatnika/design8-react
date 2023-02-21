@@ -1,6 +1,5 @@
 import React from "react";
 import LightGallery from "lightgallery/react";
-import { motion } from "framer-motion";
 
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
@@ -19,75 +18,47 @@ const SectionFive = () => {
           plugins={[lgThumbnail, lgZoom]}
         >
           <a href="/images/image-1.jpg">
-            <motion.img
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.8 }}
+            <img
               alt="img1"
               src="/images/image-1.jpg"
               className="w-full object-cover"
             />
           </a>
-          <motion.a
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            href="/images/image-2.jpg"
-          >
+          <a href="/images/image-2.jpg">
             <img
               alt="img1"
               src="/images/image-2.jpg"
               className="w-full object-cover"
             />
-          </motion.a>
-          <motion.a
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1 }}
-            href="/images/image-3.jpg"
-          >
+          </a>
+          <a href="/images/image-3.jpg">
             <img
               alt="img1"
               src="/images/image-3.jpg"
               className="w-full object-cover"
             />
-          </motion.a>
-          <motion.a
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1 }}
-            href="/images/image-8.jpg"
-          >
+          </a>
+          <a href="/images/image-8.jpg">
             <img
               alt="img1"
               src="/images/image-8.jpg"
               className="w-full object-cover"
             />
-          </motion.a>
-          <motion.a
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1 }}
-            href="/images/image-4.jpg"
-          >
+          </a>
+          <a href="/images/image-4.jpg">
             <img
               alt="img1"
               src="/images/image-4.jpg"
               className="w-full object-cover"
             />
-          </motion.a>
-          <motion.a
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1 }}
-            href="/images/image-5.jpg"
-          >
+          </a>
+          <a href="/images/image-5.jpg">
             <img
               alt="img1"
               src="/images/image-5.jpg"
               className="w-full object-cover"
             />
-          </motion.a>
+          </a>
         </LightGallery>
       </div>
     </>

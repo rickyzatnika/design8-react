@@ -3,7 +3,9 @@ import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import GetQrCode from "./GetQrCode";
+import { lazy, Suspense } from "react";
+
+const GetQrCode = lazy(() => import("./GetQrCode"));
 
 const FormRsvp = ({ guest, setShowAttend }) => {
   const [loading, setLoading] = useState(false);
@@ -45,7 +47,15 @@ const FormRsvp = ({ guest, setShowAttend }) => {
     <>
       <div className="w-full min-h-screen px-2 backdrop-blur-[4px] bg-black/80 flex items-center justify-center fixed top-0 left-0 right-0 z-50">
         {showModal ? (
-          <GetQrCode setShowAttend={setShowAttend} guest={guest} />
+          <Suspense
+            fallback={
+              <div className="w-full min-h-screen flex items-center justify-center bg-white">
+                <img src="/loading.svg" alt="loading" />
+              </div>
+            }
+          >
+            <GetQrCode setShowAttend={setShowAttend} guest={guest} />
+          </Suspense>
         ) : (
           <motion.div
             initial={{ y: -100, opacity: 0 }}

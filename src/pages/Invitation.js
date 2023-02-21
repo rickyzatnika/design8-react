@@ -1,7 +1,14 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
-import { Header, SectionTwo, SectionThree, SectionFour, SectionFive, SectionWish } from '../components'
+import React, { lazy, Suspense } from 'react';
+
+const Header = lazy(() => import("../components/Invitations/Header"))
+const SectionTwo = lazy(() => import("../components/Invitations/SectionTwo"))
+const SectionThree = lazy(() => import("../components/Invitations/SectionThree"))
+const SectionFour = lazy(() => import("../components/Invitations/SectionFour"))
+const SectionFive = lazy(() => import("../components/Invitations/SectionFive"))
+const SectionWish = lazy(() => import("../components/Invitations/SectionWish"))
 
 const Invitation = () => {
 
@@ -18,20 +25,19 @@ const Invitation = () => {
     return <div>Error Loading data...</div>;
   }
 
-  if (!guest) {
-    return <div className="absolute top-0 left-0">Loading...</div>;
-  }
-
-
   return (
 
     <>
-      <Header guest={guest} />
-      <SectionTwo />
-      <SectionThree />
-      <SectionFour />
-      <SectionFive />
-      <SectionWish guest={guest} />
+      <Suspense fallback={<div className="w-full min-h-screen flex items-center justify-center bg-white">
+        <img src="/loading.svg" alt="loading" className="w-2/5 mx-auto" />
+      </div>}>
+        <Header guest={guest} />
+        <SectionTwo />
+        <SectionThree />
+        <SectionFour />
+        <SectionFive />
+        <SectionWish guest={guest} />
+      </Suspense>
     </>
 
   )
