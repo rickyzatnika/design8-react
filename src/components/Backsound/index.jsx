@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { HiPause, HiPlay } from "react-icons/hi";
 import Song from "../../static/audio.mp3";
 
@@ -13,6 +13,14 @@ const BackSound = ({ isPlay, setIsPlay }) => {
     setIsPlay(false);
     audioEl.current.pause();
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      audioEl.current.play();
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <>

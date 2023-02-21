@@ -109,7 +109,7 @@
 }
 
 .animate {
-  animation: scales 55s infinite alternate linear;
+  animation: scales 20s infinite alternate linear;
 }
 
 @keyframes scales {
@@ -119,6 +119,6 @@
   }
   100% {
     transform: scale(3);
-    opacity: 0.2;
+    opacity: 0.1;
   }
 }

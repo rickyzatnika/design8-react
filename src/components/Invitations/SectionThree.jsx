@@ -7,7 +7,7 @@ import {
   womanImageVariants,
   titleVariants,
 } from "../../utils/Variant";
-import BgCover from "../../assets/images/image-7.jpg";
+import { AddToCalendarButton } from "add-to-calendar-button-react";
 
 const SectionThree = () => {
   const TittleInViewRef = useInView({ threshold: 0.1 });
@@ -20,7 +20,7 @@ const SectionThree = () => {
   const { ref: placeRef, inView: placeInView } = placesViewRef;
 
   return (
-    <div className="w-full min-h-screen relative py-0 lg:py-20">
+    <div className="w-full h-full relative py-0 lg:py-20">
       <div className="min-w-full absolute -top-8 lg:-top-36 left-0 right-0 -z-40">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -32,7 +32,7 @@ const SectionThree = () => {
       </div>
       <div className="absolute w-full h-screen top-0 left-0 right-0 bottom-0 -z-50 overflow-hidden">
         <img
-          src={BgCover}
+          src="/images/image-7.jpg"
           alt=""
           className="w-full h-screen animate object-cover"
         />
@@ -55,11 +55,11 @@ const SectionThree = () => {
           ref={subtitleRef}
           animate={subtitleInView ? "animate" : "initial"}
           variants={subtitleVariants}
-          className="text-transparent text-5xl lg:text-6xl font-[parisienne] bg-gradient-to-t font-thin from-yellow-500/80 via-amber-600 to-yellow-500/80 bg-clip-text "
+          className="text-transparent text-4xl md:text-5xl lg:text-6xl font-[parisienne] bg-gradient-to-t font-thin from-yellow-500/80 via-amber-600 to-yellow-500/80 bg-clip-text "
         >
           20 Mei 2023
         </motion.h3>
-        <div className="w-full flex flex-nowrap items-center  gap-4 lg:gap-0 justify-between lg:justify-around">
+        <div className="flex flex-wrap lg:flex-nowrap items-center  gap-4 lg:gap-0 justify-center lg:justify-evenly">
           <motion.div
             ref={timesRef}
             animate={timesInView ? "animate" : "initial"}
@@ -72,6 +72,25 @@ const SectionThree = () => {
             <p className="text-sm lg:text-md text-zinc-800">
               Pukul 08.15 WIB s/d Selesai
             </p>
+          </motion.div>
+          <motion.div
+            ref={timesRef}
+            animate={timesInView ? "animate" : "initial"}
+            variants={manImageVariants}
+            className="w-full items-center flex justify-center "
+          >
+            <AddToCalendarButton
+              name="The Wedding Of Mayang & Restu"
+              options="'Google'"
+              location="Jl. Ir. H. Juanda No.390, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135"
+              startDate="2023-5-20"
+              startTime="10:15"
+              endTime="14:20"
+              buttonStyle="date"
+              timeZone="Asia/Jakarta"
+              label=" add to calendar"
+              trigger="click"
+            ></AddToCalendarButton>
           </motion.div>
           <motion.div
             ref={timesRef}

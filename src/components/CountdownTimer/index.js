@@ -1,7 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  subtitleVariants,
+  manImageVariants,
+  womanImageVariants,
+  titleVariants,
+} from "../../utils/Variant";
+
 
 export default function CountDownTimer({ ...props }) {
+
   const [timerDays, setTimerDays] = useState("00");
   const [timerHours, setTimerHours] = useState("00");
   const [timerMinutes, setTimerMinutes] = useState("00");
@@ -9,9 +18,11 @@ export default function CountDownTimer({ ...props }) {
 
   const intervalRef = useRef();
 
+
+
   useEffect(() => {
     const startTimer = () => {
-      const countdownDate = new Date("June 10 2023 00:00:00").getTime();
+      const countdownDate = new Date("May 20 2023 00:00:00").getTime();
       intervalRef.current = setInterval(() => {
         const now = new Date().getTime();
         const distance = countdownDate - now;
@@ -40,36 +51,38 @@ export default function CountDownTimer({ ...props }) {
     };
   }, []);
 
+  const TittleInViewRef = useInView({ threshold: 0.1 });
+
+  const { ref: titleRef, inView: titleInView } = TittleInViewRef;
+
+
   return (
     <>
-      <div className="w-full flex flex-col item-center justify-center gap-4">
-        <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="text-center flex flex-col pb-3 justify-center items-center shadow-lg mx-auto  bg-gradient-to-tr w-40  h-40 from-zinc-50 to-zinc-200 overflow-hidden  clip"
-        >
-          {/* Timer Days */}
-          <div className=" text-3xl sm:text-5xl m-auto font-bold flex items-center justify-center">
-            <span className="bg-gradient-to-b from-zinc-900 via-zinc-400 to-zinc-900 bg-clip-text text-transparent">
-              {timerDays}
-            </span>
-          </div>
-          <small className="w-full  text-center text-zinc-900/80 font-semibold aboreto text-lg">
-            Hari
-          </small>
-        </motion.div>
-        <div className="w-full px-1 flex items-center justify-center h-full">
+      <motion.div ref={titleRef}
+        animate={titleInView ? "animate" : "initial"}
+        variants={titleVariants}
+        exit="exit" className="w-full relative px-2 lg:absolute top-0 lg:-top-20 h-full py-20 flex flex-col item-center justify-center gap-2 lg:gap-4">
 
+        <div className="w-full gap-1 lg:gap-4 flex items-center justify-center h-full">
+          <div
+
+            className="text-center rounded-lg flex flex-col pb-3 shadow-lg bg-gradient-to-tr w-28 h-28 from-zinc-50 to-zinc-200 overflow-hidden  clip"
+          >
+            {/* Timer Days */}
+            <div className=" text-3xl sm:text-5xl m-auto font-bold flex items-center justify-center">
+              <span className="bg-gradient-to-b from-zinc-900 via-zinc-400 to-zinc-900 bg-clip-text text-transparent">
+                {timerDays}
+              </span>
+            </div>
+            <small className="w-full  text-center text-zinc-900/80 font-semibold aboreto text-lg">
+              Hari
+            </small>
+          </div>
 
           {/* Timer Hours */}
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="text-center flex flex-col pb-2 shadow-lg  bg-gradient-to-tr w-28  h-28  from-zinc-50 to-zinc-200 overflow-hidden  clip"
+          <div
+
+            className="text-center rounded-lg flex flex-col pb-2 shadow-lg  bg-gradient-to-tr w-28  h-28  from-zinc-50 to-zinc-200 overflow-hidden  clip"
           >
             <div className=" text-3xl sm:text-5xl m-auto font-bold flex items-center justify-center">
               <span className="bg-gradient-to-b from-zinc-900 via-zinc-400 to-zinc-900 bg-clip-text text-transparent">
@@ -79,14 +92,11 @@ export default function CountDownTimer({ ...props }) {
             <small className="w-full  text-center text-zinc-900/80 font-semibold aboreto text-md sm:text-lg">
               Jam
             </small>
-          </motion.div>
+          </div>
           {/* Timer Minutes */}
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.7 }}
-            className="text-center flex flex-col pb-2 shadow-lg  bg-gradient-to-tr w-28  h-28  from-zinc-50 to-zinc-200 overflow-hidden  clip"
+          <div
+
+            className="text-center rounded-lg flex flex-col pb-2 shadow-lg  bg-gradient-to-tr w-28  h-28  from-zinc-50 to-zinc-200 overflow-hidden  clip"
           >
             <div className=" text-3xl sm:text-5xl m-auto font-bold flex items-center justify-center">
               <span className="bg-gradient-to-b from-zinc-900 via-zinc-400 to-zinc-900 bg-clip-text text-transparent">
@@ -96,14 +106,11 @@ export default function CountDownTimer({ ...props }) {
             <small className="w-full  text-center text-zinc-900/80 font-semibold aboreto text-md sm:text-lg">
               Menit
             </small>
-          </motion.div>
+          </div>
           {/* Timer Second */}
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="text-center flex flex-col pb-2 shadow-lg  bg-gradient-to-tr w-28  h-28  from-zinc-50 to-zinc-200 overflow-hidden  clip"
+          <div
+
+            className="text-center rounded-lg flex flex-col pb-2 shadow-lg  bg-gradient-to-tr w-28  h-28  from-zinc-50 to-zinc-200 overflow-hidden  clip"
           >
             <div className=" text-3xl sm:text-5xl m-auto font-bold flex items-center justify-center">
               <span className="bg-gradient-to-b from-zinc-900 via-zinc-400 to-zinc-900 bg-clip-text text-transparent">
@@ -113,9 +120,10 @@ export default function CountDownTimer({ ...props }) {
             <small className="w-full  text-center text-zinc-900/80 font-semibold aboreto text-md sm:text-lg">
               Detik
             </small>
-          </motion.div>
+          </div>
         </div>
-      </div>
+
+      </motion.div>
     </>
   );
 }

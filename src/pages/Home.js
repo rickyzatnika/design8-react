@@ -1,13 +1,13 @@
 import React from "react";
 import AnimatedPage from "../components/AnimatePages";
-import BgCover from "../assets/images/image-1.jpg";
+
 
 const Home = () => {
   return (
     <AnimatedPage>
       <div className="w-full  min-h-screen relative">
         <img
-          src={BgCover}
+          src="/images/image-1.jpg"
           alt="background-cover"
           className="w-full min-h-full lg:min-h-screen -z-50 object-cover object-bottom lg:object-cover absolute top-0"
         />

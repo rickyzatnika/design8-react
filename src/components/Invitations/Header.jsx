@@ -1,29 +1,8 @@
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import useSWR from "swr";
-import bgCover from "../../assets/images/image-3.jpg";
 import AnimatedPages from "../AnimatePages";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 
-const Header = () => {
-  const { uuid } = useParams();
-  const fetcher = (url) => fetch(url).then((res) => res.json());
-
-  const { data: guest, error } = useSWR(
-    `${process.env.REACT_APP_URI}/invitation/${uuid}`,
-    fetcher
-  );
-  useEffect(() => {}, [guest, error]);
-
-  if (error) {
-    return <div>Error Loading data...</div>;
-  }
-
-  if (!guest) {
-    return <div className="absolute top-0 left-0">Loading...</div>;
-  }
-
+const Header = ({ guest }) => {
   return (
     <>
       <AnimatedPages>
@@ -32,8 +11,7 @@ const Header = () => {
             <Typewriter
               options={{
                 strings: [
-                  `Hi ${guest.name}, Terima kasih sudah meluangkan waktunya untuk melihat undangan ini..`,
-                  "Jangan lupa untuk mengisi form RSVP..",
+                  `Hallo ${guest.name}, Terima kasih sudah meluangkan waktunya untuk melihat undangan ini..`,
                   " Hope you had a great time 😊",
                 ],
                 deleteSpeed: true,
@@ -46,7 +24,7 @@ const Header = () => {
 
           <div className="overflow-hidden">
             <img
-              src={bgCover}
+              src="/images/image-3.jpg"
               alt=""
               className="w-full min-h-screen object-cover object-center absolute top-0 left-0 right-0 -z-50"
             />
@@ -75,7 +53,6 @@ const Header = () => {
             <span className="text-zinc-200">Scroll Down</span>
           </div>
         </div>
-        <div className="absolute -bottom-12 lg:-bottom-1 left-0 w-full h-60 bg-gradient-to-t from-black to-transparent" />
       </AnimatedPages>
     </>
   );

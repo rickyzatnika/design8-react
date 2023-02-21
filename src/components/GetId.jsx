@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import useSWR from "swr";
 import axios from "axios";
 import AnimatedPage from "./AnimatePages";
-import BgCover from "../assets/images/image-1.jpg";
+
 import { motion } from "framer-motion";
 
 const GetId = ({ isPlay, setIsPlay }) => {
@@ -55,7 +55,7 @@ const GetId = ({ isPlay, setIsPlay }) => {
       <AnimatedPage>
         <div className="w-full  min-h-screen relative">
           <img
-            src={BgCover}
+            src="/images/image-1.jpg"
             alt="background-cover"
             className="w-full min-h-full lg:min-h-screen -z-50 object-cover object-bottom lg:object-cover absolute top-0"
           />
