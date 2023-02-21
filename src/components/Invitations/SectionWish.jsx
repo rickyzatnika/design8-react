@@ -14,7 +14,7 @@ const SectionWish = ({ guest }) => {
         if (entry.isIntersecting && !displayed) {
           setShowAttend(true);
           setDisplayed(true);
-        } else if (guest.status === "going" || guest.status === "not Going") {
+        } else if (guest?.status === "going" || guest?.status === "not Going") {
           setShowAttend(false);
         } else {
           setDisplayed(false);
@@ -26,12 +26,12 @@ const SectionWish = ({ guest }) => {
     return () => {
       observer.disconnect();
     };
-  }, [displayed, guest.status, guest]);
+  }, [displayed, guest?.status, guest]);
 
   const fetcher = (url) => fetch(url).then((res) => res.json());
 
   const { data: posts, error } = useSWR(
-    `${process.env.REACT_APP_URI}/comment/${guest.unique_Code}?userId=${userId}`,
+    `${process.env.REACT_APP_URI}/comment/${guest?.unique_Code}?userId=${userId}`,
     fetcher
   );
   useEffect(() => {}, [posts, error]);
