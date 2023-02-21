@@ -122,3 +122,11 @@
     opacity: 0.1;
   }
 }
+
+.after {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+
+  padding: 0 4px;
+}
