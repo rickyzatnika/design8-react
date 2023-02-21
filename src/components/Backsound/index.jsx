@@ -19,11 +19,16 @@ const BackSound = () => {
   }, [isPlay]);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    const handleScroll = () => {
       setIsPlay(true);
-    }, 2000);
+      audioEl.current.play();
+    };
 
-    return () => clearTimeout(timeout);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (

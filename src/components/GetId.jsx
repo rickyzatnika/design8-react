@@ -12,6 +12,7 @@ const GetId = () => {
   const [selectValue, setSelectValue] = useState("");
   const { register, handleSubmit } = useForm();
   const { uuid } = useParams();
+  const [errors, setErrors] = useState(null);
 
   const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -24,16 +25,16 @@ const GetId = () => {
 
   const formSubmit = async () => {
     try {
-      const userId = guest.userId;
+      const userId = guest?.userId;
       await axios.patch(
-        `${process.env.REACT_APP_URI}/invitation/status/${guest.unique_Code}?userId=${userId}`,
+        `${process.env.REACT_APP_URI}/invitation/status/${uuid}?userId=${userId}`,
         {
           status: selectValue,
         }
       );
-      navigate(`/invitation/${guest.unique_Code}?userId=${userId}`);
+      navigate(`/invitation/${guest?.unique_Code}?userId=${userId}`);
     } catch (error) {
-      console.error(error);
+      setErrors(error.response.msg);
     }
   };
 
@@ -84,8 +85,13 @@ const GetId = () => {
                 checked={selectValue === "Opened"}
                 value="Opened"
                 {...register("status")}
-                className="opacity-0 flex flex-col items-center justify-center"
+                className="hidden"
               />
+              {errors && (
+                <div className="py-2 px-6 text-white">
+                  Maaf sepertinya anda tidak diundang
+                </div>
+              )}
               <button
                 onClick={() => handleClick("Opened")}
                 type="submit"
