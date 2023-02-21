@@ -5,20 +5,21 @@ import "aos/dist/aos.css";
 import baguetteBox from "baguettebox.js";
 import "baguettebox.js/dist/baguetteBox.min.css";
 
-baguetteBox.run(".gallery");
-
 const SectionFive = () => {
   useEffect(() => {
+    baguetteBox.run(".gallery", {
+      buttons: "auto",
+      animation: false,
+    });
+
     AOS.init({
       once: true,
-      startEvent: "DOMContentLoaded",
-      animatedClassName: "aos-animate",
     });
   }, []);
 
   return (
     <>
-      <div className="gallery columns-2 lg:columns-3 w-full max-w-5xl mx-auto  gap-2 ">
+      <div className="gallery columns-2 lg:columns-3 w-full max-w-5xl mx-auto py-10 lg:py-40  gap-2 ">
         <div
           data-aos="fade-up"
           data-aos-delay="20"

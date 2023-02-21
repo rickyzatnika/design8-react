@@ -1,11 +1,15 @@
 import moment from "moment";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
-const FormComment = ({ guest }) => {
+const FormComment = ({ guest, setShowAttend }) => {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
   const postComment = async ({ comments }) => {
+    const userId = guest?.userId;
     try {
       await axios.patch(
         `${process.env.REACT_APP_URI}/invitation/comment/${guest.unique_Code}`,
@@ -14,7 +18,11 @@ const FormComment = ({ guest }) => {
           date: moment().format("DD MMMM YYYY, h:mm a"),
         }
       );
-      window.location.reload();
+      setShowAttend(false);
+      Swal.fire({
+        text: "Terima kasih atas partisipasinya..",
+      });
+      navigate(`/invitation/${guest?.unique_Code}?userId=${userId}/#wish`);
     } catch (error) {
       console.log(error);
     }

@@ -14,10 +14,6 @@ const SectionWish = ({ guest }) => {
         if (entry.isIntersecting && !displayed) {
           setShowAttend(true);
           setDisplayed(true);
-        } else if (guest?.status === "going" || guest?.status === "not Going") {
-          setShowAttend(false);
-        } else {
-          setDisplayed(false);
         }
       });
     });
@@ -26,7 +22,7 @@ const SectionWish = ({ guest }) => {
     return () => {
       observer.disconnect();
     };
-  }, [displayed, guest?.status, guest]);
+  }, [displayed, guest]);
 
   const fetcher = (url) => fetch(url).then((res) => res.json());
 

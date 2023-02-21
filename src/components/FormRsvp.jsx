@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { lazy, Suspense } from "react";
 import FormComment from "./FormComment";
+import Swal from "sweetalert2";
 
 const GetQrCode = lazy(() => import("./GetQrCode"));
 
@@ -19,7 +20,7 @@ const FormRsvp = ({ guest, setShowAttend }) => {
 
   const attendForm = async ({ status, present }) => {
     try {
-      const userId = guest?.userId;
+      const userId = guest.userId;
       await axios.patch(
         `${process.env.REACT_APP_URI}/invitation/status/${uuid}?userId=${userId}`,
         {
@@ -27,7 +28,14 @@ const FormRsvp = ({ guest, setShowAttend }) => {
           status: selectedValue,
         }
       );
+
       if (!status && selectedValue === "not Going") {
+        Swal.fire({
+          text: "Terima kasih atas partisipasinya..",
+        });
+        setLoading(false);
+        setShowComment(false);
+        setShowModal(false);
         setShowAttend(false);
       }
       setLoading(true);
@@ -48,7 +56,9 @@ const FormRsvp = ({ guest, setShowAttend }) => {
   return (
     <>
       <div className="w-full min-h-screen px-2 backdrop-blur-[4px] bg-black/80 flex items-center justify-center fixed top-0 left-0 right-0 z-50">
-        {showComment && <FormComment guest={guest} />}
+        {showComment && (
+          <FormComment setShowAttend={setShowAttend} guest={guest} />
+        )}
         {showModal ? (
           <Suspense
             fallback={
