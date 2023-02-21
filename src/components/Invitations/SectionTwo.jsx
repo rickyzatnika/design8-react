@@ -22,7 +22,7 @@ const SectionTwo = () => {
   const { ref: subRef, inView: subInView } = subInViewRef;
 
   return (
-    <div className="w-full min-h-screen bg-black relative">
+    <div id="wish" className="w-full min-h-screen bg-black relative">
       <div className="absolute -top-36 lg:-top-40 left-0 w-full  h-40 bg-gradient-to-t from-black to-transparent" />
       <div className="px-2 text-center flex flex-col gap-2 py-10">
         <motion.h1

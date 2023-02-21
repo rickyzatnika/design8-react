@@ -35,6 +35,7 @@ const SectionFive = () => {
                 data-aos-offset="400"
                 data-aos-delay="20"
                 data-aos-duration="1000"
+                data-aos-once="true"
                 data-aos-anchor-placement="top-center"
               >
                 <img src="/images/image-9.jpg" alt="image1" />
@@ -51,7 +52,7 @@ const SectionFive = () => {
                 data-aos-delay="20"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out"
-                data-aos-mirror="true"
+                data-aos-once="true"
                 data-aos-anchor-placement="top-center"
               >
                 <img src="/images/image-2.jpg" alt="image2" />
@@ -68,7 +69,7 @@ const SectionFive = () => {
                 data-aos-delay="20"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out"
-                data-aos-mirror="true"
+                data-aos-once="true"
                 data-aos-anchor-placement="top-center"
               >
                 <img src="/images/image-3.jpg" alt="image1" />
@@ -85,7 +86,7 @@ const SectionFive = () => {
                 data-aos-delay="20"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out"
-                data-aos-mirror="true"
+                data-aos-once="true"
                 data-aos-anchor-placement="top-center"
               >
                 <img src="/images/image-4.jpg" alt="image1" />
@@ -102,7 +103,7 @@ const SectionFive = () => {
                 data-aos-delay="20"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out"
-                data-aos-mirror="true"
+                data-aos-once="true"
                 data-aos-anchor-placement="top-center"
               >
                 <img src="/images/image-5.jpg" alt="image1" />
@@ -119,7 +120,7 @@ const SectionFive = () => {
                 data-aos-delay="20"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out"
-                data-aos-mirror="true"
+                data-aos-once="true"
                 data-aos-anchor-placement="top-center"
               >
                 <img src="/images/image-6.jpg" alt="image1" />
@@ -136,7 +137,7 @@ const SectionFive = () => {
                 data-aos-delay="20"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out"
-                data-aos-mirror="true"
+                data-aos-once="true"
                 data-aos-anchor-placement="top-center"
               >
                 <img src="/images/image-7.jpg" alt="image1" />
@@ -153,7 +154,7 @@ const SectionFive = () => {
                 data-aos-delay="20"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out"
-                data-aos-mirror="true"
+                data-aos-once="true"
                 data-aos-anchor-placement="top-center"
               >
                 <img src="/images/image-1.jpg" alt="image1" />

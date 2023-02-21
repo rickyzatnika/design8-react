@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { BiMap } from "react-icons/bi";
 
-const GetQrCode = ({ guest, setShowAttend }) => {
+const GetQrCode = ({ guest, setShowModal, setShowComment }) => {
   const [qrCode, setQrCode] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -24,7 +24,8 @@ const GetQrCode = ({ guest, setShowAttend }) => {
   });
 
   const close = () => {
-    setShowAttend(false);
+    setShowModal(false);
+    setShowComment(true);
   };
 
   return (
@@ -68,7 +69,7 @@ const GetQrCode = ({ guest, setShowAttend }) => {
             </div>
             <button
               className="text-md underline tracking-wider"
-              onClick={() => close()}
+              onClick={close}
             >
               CLOSE
             </button>

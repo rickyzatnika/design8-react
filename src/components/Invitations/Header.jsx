@@ -11,7 +11,7 @@ const Header = ({ guest }) => {
             <Typewriter
               options={{
                 strings: [
-                  `Hallo ${guest.name}, Terima kasih sudah meluangkan waktunya untuk melihat undangan ini..`,
+                  `Hallo ${guest?.name}, Terima kasih sudah meluangkan waktunya untuk melihat undangan ini..`,
                   " Hope you had a great time 😊",
                 ],
                 deleteSpeed: true,

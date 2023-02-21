@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { lazy, Suspense } from "react";
+import FormComment from "./FormComment";
 
 const GetQrCode = lazy(() => import("./GetQrCode"));
 
@@ -12,12 +13,13 @@ const FormRsvp = ({ guest, setShowAttend }) => {
   const { register, handleSubmit } = useForm();
   const [selectedValue, setSelectedValue] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [showComment, setShowComment] = useState(false);
 
   const { uuid } = useParams();
 
   const attendForm = async ({ status, present }) => {
     try {
-      const userId = guest.userId;
+      const userId = guest?.userId;
       await axios.patch(
         `${process.env.REACT_APP_URI}/invitation/status/${uuid}?userId=${userId}`,
         {
@@ -46,6 +48,7 @@ const FormRsvp = ({ guest, setShowAttend }) => {
   return (
     <>
       <div className="w-full min-h-screen px-2 backdrop-blur-[4px] bg-black/80 flex items-center justify-center fixed top-0 left-0 right-0 z-50">
+        {showComment && <FormComment guest={guest} />}
         {showModal ? (
           <Suspense
             fallback={
@@ -54,7 +57,12 @@ const FormRsvp = ({ guest, setShowAttend }) => {
               </div>
             }
           >
-            <GetQrCode setShowAttend={setShowAttend} guest={guest} />
+            <GetQrCode
+              setShowModal={setShowModal}
+              setShowAttend={setShowAttend}
+              setShowComment={setShowComment}
+              guest={guest}
+            />
           </Suspense>
         ) : (
           <motion.div
