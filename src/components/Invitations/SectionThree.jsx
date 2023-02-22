@@ -20,7 +20,7 @@ const SectionThree = () => {
   const { ref: placeRef, inView: placeInView } = placesViewRef;
 
   return (
-    <div className="w-full h-full relative py-0 lg:py-20">
+    <div className="w-full min-h-screen relative py-4 lg:py-20">
       <div className="min-w-full absolute -top-8 lg:-top-36 left-0 right-0 -z-40">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path

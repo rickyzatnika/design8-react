@@ -19,7 +19,7 @@ const SectionFive = () => {
 
   return (
     <>
-      <div className="gallery columns-2 lg:columns-3 w-full max-w-5xl mx-auto py-10 lg:py-40  gap-2 ">
+      <div className="gallery columns-2 lg:columns-3 w-full max-w-5xl mx-auto py-10 lg:py-40 px-1 gap-2 ">
         <div
           data-aos="fade-up"
           data-aos-delay="20"

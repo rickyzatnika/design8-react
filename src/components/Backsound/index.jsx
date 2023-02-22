@@ -18,18 +18,18 @@ const BackSound = () => {
     }
   }, [isPlay]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsPlay(true);
-      audioEl.current.play();
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsPlay(true);
+  //     audioEl.current.play();
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <div className="fixed z-50 top-4 left-4">

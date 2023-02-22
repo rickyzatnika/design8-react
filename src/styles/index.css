@@ -123,10 +123,17 @@
   }
 }
 
-.after {
-  width: 100%;
-  display: grid;
-  grid-template-columns: auto auto auto;
-
-  padding: 0 4px;
+.animates {
+  animation: scale 30s infinite alternate linear;
+  transition: all 3s ease-in-out;
+}
+@keyframes scale {
+  0% {
+    transform: scale(1);
+    filter: grayscale(0);
+  }
+  100% {
+    transform: scale(2);
+    filter: grayscale(1);
+  }
 }

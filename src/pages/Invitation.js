@@ -9,6 +9,8 @@ const SectionThree = lazy(() => import("../components/Invitations/SectionThree")
 const SectionFour = lazy(() => import("../components/Invitations/SectionFour"))
 const SectionFive = lazy(() => import("../components/Invitations/SectionFive"))
 const SectionWish = lazy(() => import("../components/Invitations/SectionWish"))
+const SubFooter = lazy(() => import("../components/Invitations/SubFooter"))
+const Footer = lazy(() => import("../components/Invitations/Footer"))
 
 const Invitation = () => {
 
@@ -37,6 +39,8 @@ const Invitation = () => {
         <SectionFour />
         <SectionFive />
         <SectionWish guest={guest} />
+        <SubFooter />
+        <Footer />
       </Suspense>
     </>
 

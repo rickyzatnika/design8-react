@@ -11,13 +11,18 @@ const SectionWish = ({ guest }) => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 1000,
-    autoplaySpeed: 4000,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    className: "center",
-    autoplay: true,
-    cssEase: "linear",
+    vertical: true,
+    verticalSwiping: true,
+    swipeToSlide: true,
+
+    beforeChange: function (currentSlide, nextSlide) {
+      console.log("before change", currentSlide, nextSlide);
+    },
+    afterChange: function (currentSlide) {
+      console.log("after change", currentSlide);
+    },
   };
 
   const sectionRef = useRef(null);
@@ -57,7 +62,7 @@ const SectionWish = ({ guest }) => {
     <div ref={sectionRef} className="w-full min-h-screen">
       {showAttend && <FormRsvp guest={guest} setShowAttend={setShowAttend} />}
       {/* Comment Section */}
-      <div className="w-full lg:max-w-4xl h-full py-10 mx-auto">
+      <div className="w-full lg:max-w-4xl h-full  mx-auto">
         <div className="py-2 px-1">
           <h1 className="text-zinc-800">
             {posts?.length} <i>post comments</i>
@@ -66,7 +71,7 @@ const SectionWish = ({ guest }) => {
         <Slider {...settings}>
           {posts?.map((post, i) => (
             <div
-              className="bg-black antialiased shadow-lg shadow-black/30 w-full pb-20 pt-5 px-3 lg:px-6 flex items-center justify-center"
+              className="bg-black antialiased shadow-lg shadow-black/30 w-full pt-8 pb-10 px-3 lg:px-6 flex items-center justify-center"
               key={i}
             >
               <div className="w-full flex flex-col justify-between">
@@ -78,8 +83,10 @@ const SectionWish = ({ guest }) => {
                     </h2>
                   </div>
                   <div className="flex items-center gap-0 lg:gap-1">
-                    <IoMdTime size={18} className="text-zinc-400/80" />
-                    <p className="text-zinc-400 text-sm">{post.date}</p>
+                    <IoMdTime size={18} className="text-zinc-400/80 pr-1" />
+                    <p className="text-zinc-400 text-xs lg:text-sm">
+                      {post.date}
+                    </p>
                   </div>
                 </div>
                 <div className="p-3 mb-6">
