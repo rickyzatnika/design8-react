@@ -11,18 +11,9 @@ const SectionWish = ({ guest }) => {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 3,
+    speed: 500,
+    slidesToShow: 1,
     slidesToScroll: 1,
-    vertical: true,
-    verticalSwiping: true,
-    swipeToSlide: true,
-
-    beforeChange: function (currentSlide, nextSlide) {
-      console.log("before change", currentSlide, nextSlide);
-    },
-    afterChange: function (currentSlide) {
-      console.log("after change", currentSlide);
-    },
   };
 
   const sectionRef = useRef(null);
@@ -35,6 +26,9 @@ const SectionWish = ({ guest }) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && !displayed) {
           setShowAttend(true);
+          setDisplayed(true);
+        }
+        if (guest && guest?.status === "going") {
           setDisplayed(true);
         }
       });
@@ -59,7 +53,11 @@ const SectionWish = ({ guest }) => {
   }
 
   return (
-    <div ref={sectionRef} className="w-full min-h-screen">
+    <div
+      ref={sectionRef}
+      id="wish"
+      className="w-full min-h-full pb-44 lg:pb-80"
+    >
       {showAttend && <FormRsvp guest={guest} setShowAttend={setShowAttend} />}
       {/* Comment Section */}
       <div className="w-full lg:max-w-4xl h-full  mx-auto">

@@ -38,6 +38,7 @@ const FormRsvp = ({ guest, setShowAttend }) => {
         setShowModal(false);
         setShowAttend(false);
       }
+
       setLoading(true);
       setTimeout(() => {
         setLoading(false);

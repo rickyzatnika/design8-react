@@ -21,8 +21,11 @@ const FormComment = ({ guest, setShowAttend }) => {
       setShowAttend(false);
       Swal.fire({
         text: "Terima kasih atas partisipasinya..",
+      }).then(() => {
+        window.location.reload(
+          navigate(`/invitation/${guest?.unique_Code}?userId=${userId}/#wish`)
+        );
       });
-      navigate(`/invitation/${guest?.unique_Code}?userId=${userId}/#wish`);
     } catch (error) {
       console.log(error);
     }
