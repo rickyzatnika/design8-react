@@ -58,7 +58,7 @@ const SectionTwo = () => {
           />
           <div className="flex flex-col items-center gap-2">
             <h3 className="pt-3 text-zinc-300">Mayang Sari</h3>
-            <p className="text-sm text-zinc-400/80">
+            <p className="text-[16px] text-zinc-500/80">
               Putri dari Bpk. Hasan Bakrie dan Ibu Mutia Bakrie
             </p>
             <Link
@@ -90,8 +90,8 @@ const SectionTwo = () => {
           />
           <div className="flex flex-col items-center gap-2">
             <h3 className="pt-3 text-zinc-300">Restu Syamba</h3>
-            <p className="text-sm text-zinc-400/80">
-              Putri dari Bpk. Budi dan Ibu Uchi
+            <p className="text-[16px] text-zinc-500/80">
+              Putra dari Bpk. Budi dan Ibu Uchi
             </p>
             <Link
               to="https://instagram.com/webhouse_invitation"

@@ -94,15 +94,18 @@ const FormRsvp = ({ guest, setShowAttend }) => {
               <>
                 <div className="py-2 px-2">
                   <h1 className="text-lg lg:text-xl text-zinc-700">
-                    Hi {guest.name}, kami berharap atas kehadirannya nanti pada
-                    hari bahagia kami.
+                    Hi {guest.name}, kami berharap atas kehadirannya pada hari
+                    bahagia kami nanti.
                   </h1>
                 </div>
                 <form
                   onSubmit={handleSubmit(attendForm)}
-                  className="w-full rounded z-50 h-auto px-4 lg:px-8 py-20 flex flex-col items-center justify-between gap-3"
+                  className="w-full rounded z-50 h-auto px-4 lg:px-8 py-20 flex flex-col items-start justify-between gap-3"
                 >
-                  <div className="w-full leading-relaxed mb-3">
+                  <h3 className="text-md lg:text-lg text-left text-zinc-700">
+                    Apakah anda akan hadir ?
+                  </h3>
+                  <div className="w-full leading-relaxed mb-3 px-3">
                     <div className="flex flex-col flex-nowrap gap-2">
                       <div className="flex flex-nowrap gap-1">
                         <input

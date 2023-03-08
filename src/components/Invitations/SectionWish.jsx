@@ -60,23 +60,24 @@ const SectionWish = ({ guest }) => {
     >
       {showAttend && <FormRsvp guest={guest} setShowAttend={setShowAttend} />}
       {/* Comment Section */}
-      <div className="w-full lg:max-w-4xl h-full  mx-auto">
-        <div className="py-2 px-1">
+
+      <div className="w-full lg:max-w-4xl relative shadow-lg shadow-black/60 h-full  mx-auto">
+        <div className="py-2 px-1 absolute -top-10 left-0">
           <h1 className="text-zinc-800">
-            {posts?.length} <i>post comments</i>
+            {posts?.length} <i>comments</i>
           </h1>
         </div>
         <Slider {...settings}>
           {posts?.map((post, i) => (
             <div
-              className="bg-black antialiased shadow-lg shadow-black/30 w-full pt-8 pb-10 px-3 lg:px-6 flex items-center justify-center"
+              className="bg-[#101010]  w-full pt-8 pb-10 px-3 lg:px-6 flex items-center justify-center"
               key={i}
             >
               <div className="w-full flex flex-col justify-between">
                 <div className="flex items-center justify-between gap-1">
                   <div className="flex items-center gap-1">
-                    <HiUserCircle className="text-zinc-300" size={24} />
-                    <h2 className="text-zinc-400 text-xl lg:text-2xl tracking-wide capitalize font-[Hattori]">
+                    <HiUserCircle className="text-zinc-300" size={26} />
+                    <h2 className="text-zinc-400 text-md lg:text-lg tracking-wide capitalize font-[Hattori]">
                       {post.name}
                     </h2>
                   </div>
@@ -87,8 +88,8 @@ const SectionWish = ({ guest }) => {
                     </p>
                   </div>
                 </div>
-                <div className="p-3 mb-6">
-                  <p className="text-zinc-400/90">{post.comments}</p>
+                <div className="p-3 mb-6 ">
+                  <p className="text-zinc-400/90 text-md">{post.comments}</p>
                 </div>
               </div>
               {!post?.reply ? (
@@ -96,9 +97,11 @@ const SectionWish = ({ guest }) => {
                   <p className="text-zinc-400/80 italic">Belum ada balasan</p>
                 </div>
               ) : (
-                <div className="px-14 flex flex-col items-start gap-1">
-                  <p className="text-zinc-400/80 text-sm  italic">Balasan</p>
-                  <p className="text-zinc-400/70">{post.reply}</p>
+                <div className="px-8 flex flex-col items-start gap-1">
+                  <p className="text-zinc-500/70 text-sm antialiased italic">
+                    Balasan
+                  </p>
+                  <p className="text-zinc-400/70 text-md">{post.reply}</p>
                 </div>
               )}
             </div>

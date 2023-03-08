@@ -40,6 +40,7 @@ const Invitation = () => {
           },
         }
       );
+      console.log(response.data.resources)
       setImageUrl(response.data.resources);
     } catch (error) {
       console.error("Error fetching images:", error);
@@ -62,11 +63,11 @@ const Invitation = () => {
       </div>}>
         <Header guest={guest} imageUrl={imageUrl} />
         <SectionTwo />
-        <SectionThree />
+        <SectionThree imageUrl={imageUrl} />
         <SectionFour />
         <SectionFive imageUrl={imageUrl} />
         <SectionWish guest={guest} />
-        <SubFooter />
+        <SubFooter imageUrl={imageUrl} />
         <Footer />
       </Suspense>
     </>

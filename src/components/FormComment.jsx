@@ -34,8 +34,8 @@ const FormComment = ({ guest, setShowAttend }) => {
   return (
     <div className="w-full min-h-screen px-2 bg-black/40 fixed top-0 left-0 right-0 z-50 flex items-center justify-center">
       <div className=" w-full px-2 lg:w-4/6 h-auto bg-white p-8 rounded-xl">
-        <h1 className="text-center text-2xl font-[Hattori]">
-          Pesan dan Harapan untuk Kami
+        <h1 className="text-center text-2xl text-zinc-600 font-[Hattori]">
+          Tulis Pesan dan Harapan kamu untuk Kami
         </h1>
         <form
           onSubmit={handleSubmit(postComment)}
@@ -56,7 +56,7 @@ const FormComment = ({ guest, setShowAttend }) => {
               name=""
               cols="30"
               rows="10"
-              className="w-full p-4 focus:outline-black focus:border-none placeholder:italic rounded text-zinc-700 border-none  "
+              className="w-full p-4 focus:outline-zinc-600 focus:border-none placeholder:italic rounded text-zinc-700 border-none  "
               placeholder="Tulis Pesan ..."
               {...register("comments", {
                 required: true,

@@ -63,14 +63,14 @@ export default function CountDownTimer({ ...props }) {
             data-aos-offset="200"
             data-aos-delay="50"
             data-aos-duration="1000"
-            className="text-center rounded-lg flex flex-col pb-3 shadow-lg bg-gradient-to-tr w-28 h-28 from-zinc-50 to-zinc-200 overflow-hidden  clip">
+            className="text-center rounded-lg flex flex-col pb-2 shadow-lg bg-gradient-to-tr w-28 h-28 from-zinc-50 to-zinc-200 overflow-hidden  clip">
             {/* Timer Days */}
             <div className=" text-3xl sm:text-5xl m-auto font-bold flex items-center justify-center">
               <span className="bg-gradient-to-b from-zinc-900 via-zinc-400 to-zinc-900 bg-clip-text text-transparent">
                 {timerDays}
               </span>
             </div>
-            <small className="w-full  text-center text-zinc-900/80 font-semibold aboreto text-lg">
+            <small className="w-full  text-center text-zinc-900/80 font-semibold aboreto text-md sm:text-lg">
               Hari
             </small>
           </div>

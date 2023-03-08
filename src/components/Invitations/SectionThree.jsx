@@ -9,7 +9,10 @@ import {
 } from "../../utils/Variant";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 
-const SectionThree = () => {
+const SectionThree = ({ imageUrl }) => {
+  const data = imageUrl.find(
+    (item) => item.public_id === "photo/wedding-nia/image-7_fri0gk"
+  );
   const TittleInViewRef = useInView({ threshold: 0.1 });
   const SubtitleInViewRef = useInView({ threshold: 0.1 });
   const timesInViewRef = useInView({ threshold: 0.1 });
@@ -32,8 +35,8 @@ const SectionThree = () => {
       </div>
       <div className="absolute w-full h-screen top-0 left-0 right-0 bottom-0 -z-50 overflow-hidden">
         <img
-          src="/images/image-7.jpg"
-          alt=""
+          src={data?.secure_url}
+          alt={data?.public_id}
           className="w-full h-screen animate object-cover"
         />
         <div className="w-full min-h-screen bg-gradient-to-b from-white via-white/70 to-white absolute top-0" />
@@ -49,13 +52,13 @@ const SectionThree = () => {
           <h1 className=" text-2xl text-zinc-800 font-[Hattori] lg:text-3xl">
             Tempat, Waktu dan Acara
           </h1>
-          <p>Akan diselenggarakan pada :</p>
+          <p>akan diselenggarakan pada :</p>
         </motion.div>
         <motion.h3
           ref={subtitleRef}
           animate={subtitleInView ? "animate" : "initial"}
           variants={subtitleVariants}
-          className="text-transparent text-4xl md:text-5xl lg:text-6xl font-[parisienne] bg-gradient-to-t font-thin from-yellow-500/80 via-amber-600 to-yellow-500/80 bg-clip-text "
+          className="text-transparent text-4xl md:text-5xl lg:text-6xl font-[parisienne] bg-gradient-to-t font-thin from-yellow-600/80 via-amber-600 to-yellow-500/80 bg-clip-text "
         >
           20 Mei 2023
         </motion.h3>
@@ -116,7 +119,7 @@ const SectionThree = () => {
           <h4 className="uppercase text-xl text-zinc-900 font-semibold">
             Sheraton Bandung Hotel & Towers
           </h4>
-          <p className="text-zinc-800 text-md lg:text-xl font-[Hattori]">
+          <p className="text-zinc-800 text-md font-[Hattori]">
             Jl. Ir. H. Juanda No.390, Dago, Kecamatan Coblong, Kota Bandung,
             Jawa Barat 40135
           </p>
