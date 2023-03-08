@@ -2,7 +2,11 @@ import AnimatedPages from "../AnimatePages";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 
-const Header = ({ guest }) => {
+const Header = ({ guest, imageUrl }) => {
+  const data = imageUrl.find(
+    (item) => item.public_id === "photo/wedding-nia/image-3_exnp8q"
+  );
+
   return (
     <>
       <AnimatedPages>
@@ -24,8 +28,8 @@ const Header = ({ guest }) => {
 
           <div className="overflow-hidden">
             <img
-              src="/images/image-3.jpg"
-              alt=""
+              src={data?.secure_url}
+              alt={data?.public_id}
               className="w-full min-h-screen object-cover object-center absolute top-0 left-0 right-0 -z-50"
             />
           </div>

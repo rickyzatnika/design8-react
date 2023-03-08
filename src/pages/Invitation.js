@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import React, { lazy, Suspense } from 'react';
+import axios from "axios";
 
 const Header = lazy(() => import("../components/Invitations/Header"))
 const SectionTwo = lazy(() => import("../components/Invitations/SectionTwo"))
@@ -23,6 +24,32 @@ const Invitation = () => {
   );
   useEffect(() => { }, [guest, error]);
 
+  const [imageUrl, setImageUrl] = useState([]);
+  const getImageUrl = async () => {
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const apiSecret = process.env.REACT_APP_API_SECRET;
+    const cloudName = process.env.REACT_APP_CLOUD_NAME;
+    const auth = btoa(`${apiKey}:${apiSecret}`);
+
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_URI}/v1_1/${cloudName}/resources/image`,
+        {
+          headers: {
+            Authorization: `Basic ${auth}`,
+          },
+        }
+      );
+      setImageUrl(response.data.resources);
+    } catch (error) {
+      console.error("Error fetching images:", error);
+    }
+  };
+
+  useEffect(() => {
+    getImageUrl();
+  }, []);
+
   if (error) {
     return <div>Error Loading data...</div>;
   }
@@ -33,11 +60,11 @@ const Invitation = () => {
       <Suspense fallback={<div className="w-full min-h-screen flex items-center justify-center bg-white">
         <img src="/loading.svg" alt="loading" className="w-2/5 mx-auto" />
       </div>}>
-        <Header guest={guest} />
+        <Header guest={guest} imageUrl={imageUrl} />
         <SectionTwo />
         <SectionThree />
         <SectionFour />
-        <SectionFive />
+        <SectionFive imageUrl={imageUrl} />
         <SectionWish guest={guest} />
         <SubFooter />
         <Footer />
